@@ -20,6 +20,8 @@ from home import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
-    path('dashboard', views.dashboard),
-    path('delete/<int:id>/', views.delete_usuario, name='delete_usuario')
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('delete/<int:id>/', views.delete_usuario, name='delete_usuario'),
+    path('update/<int:id>/', views.update_usuario, name='update_usuario'),
+
 ]

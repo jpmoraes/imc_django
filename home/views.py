@@ -42,4 +42,14 @@ def delete_usuario(request, id):
     usuario = get_object_or_404(Usuario, id=id)
     usuario.delete()
     return redirect('dashboard')
-        
+
+def update_usuario(request, id):
+    usuario = get_object_or_404(Usuario, id=id)
+    if request.method == 'POST':
+        usuario.nome = request.POST.get('nome')
+        usuario.peso = float(request.POST.get('peso'))
+        usuario.altura = float(request.POST.get('altura'))
+        # Atualize categoria se necessário
+        usuario.save()
+        return redirect('dashboard')
+    return redirect('dashboard')
